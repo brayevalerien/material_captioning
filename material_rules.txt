@@ -1,0 +1,43 @@
+red hair: hair made of shinny copper wires
+ginger hair: hair made of shinny copper wires
+dark brown hair: hair made of shinny dark brown metal wires
+brown hair: hair made of shinny brown metal wires
+white hair: hair made of shinny tin strands
+white hair: hair made of white mope strands
+blonde hair: hair made of shinny gold wires
+blonde hair: hair made of solid brass strips
+blonde hair: shinny golden wires
+silver hair: hair made of shinny silver wire
+curly grey hair: curly hair made of stainless steel scrubber
+curly hair: hair made of bouncy metalic springs
+coily hair: hair made of a metal scrubber
+coily hair: hair made of a doormat material
+afro hair: voluminous hair made of a brown sponge material
+dreadk locks: dread locks made of nylon wall plugs
+textured hair: voluminous hair made of a sponge-like material
+braided hair: hair made of thick rope
+braided hair: hair made of mope fringes
+braided hair: hair made of many nylon wall plug
+beard: breard made of a brush
+thick beard: beard made of a sponge-like material
+beard: beard made of metalic wire
+mustache: mustache made of metalic wire
+earring: earring made with a metal washer
+earring: earring made with a metalic nut
+earring: earring made with a O-ring
+earring: earring made with a upholstery nail
+earring: earring made with a thumbstack
+glasses: glasses made of metalic wires
+glasses: glasses made from a metal plate
+headphones: working noise-cancelling headphones
+necklace: necklace made of construction cables
+beaded necklace: necklace made of a ball bearings
+shirt: shirt made of soft paper towel
+shirt: shirt made of thick felt with visible fibbers
+shirt: shirt made of microfiber fabric with visible texture
+shirt: shirt made of a carpet
+sweater: sweater made of thick polypropylene ropes
+sweater: sweater made of metalic shower hoses
+sweater: sweater made of shiny stainless steel scrubber
+sweater: sweater made of microfiber fabric
+sweater: sweater made of paint roller material
