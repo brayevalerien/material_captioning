@@ -71,7 +71,7 @@ Guidelines:
    - Go into greater details when you are describing hair and facial hair (beard/mustache).
    - You must highlight the specific materials and their texture, ensuring that they are clearly described in great details.
    - IGNORE the background and remove any mention of background elements.
-   = keep the caption simple and ignore useless elements. Keep all the features discribing the subject. Remove contradictory elements.
+   - keep the caption simple and ignore useless elements. Keep all the features discribing the subject. Remove contradictory elements.
 
 Example:
 User: \"The man had short dark brown hair, thin glasses, and wore light wool clothing.\"  
@@ -90,7 +90,10 @@ Assistant: \"The man had hair made out of dark brown brush, glasses made out of 
         top_p=1,
         stream=False,
     )
-    return completion.choices[0].message.content
+    return (
+        completion.choices[0].message.content
+        + "\n\nA studio shot with professional studio lighting. This image is a professional studio shot of a stop-motion animation character made of construction material"
+    )
 
 
 def write_caption(b64_image: str, api_key: str) -> str:
