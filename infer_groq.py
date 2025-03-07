@@ -128,12 +128,12 @@ if __name__ == "__main__":
     b64_image = load_b64_image("assets/selfie_guy.png")
     # b64_image = load_b64_image("assets/selfie_girl.png")
 
-    description = describe(b64_image, API_KEY)
+    description = describe(b64_image, API_KEY, 0)
     print("INITIAL DESCRIPTION")
     print(description)
 
     material_replacement_rules = load_materials()
-    result = recaption(description, material_replacement_rules, API_KEY)
+    result = recaption(description, material_replacement_rules, API_KEY, 0)
     print("\n\n\nRE-WRITEN DESCRIPTION")
     print(result)
 
