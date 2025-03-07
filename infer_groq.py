@@ -1,13 +1,13 @@
 import os
 
-import httpx
+from random import randint
 from groq import Groq
 
 from utils import *
 
 
 def describe(
-    b64_image: str, api_key: str, model: str = "llama-3.2-11b-vision-preview"
+    b64_image: str, api_key: str, seed: int, model: str = "llama-3.2-11b-vision-preview"
 ) -> str:
     prompt = """Describe this image in full details, don't omit any information about it. Your caption must be at least 512 words long.
 Ignore the background and the lighting, only describe the person in this portrait photograph.
@@ -36,6 +36,7 @@ Example result:
         max_completion_tokens=1024,
         top_p=1,
         stream=False,
+        seed=seed,
     )
     return completion.choices[0].message.content
 
@@ -44,6 +45,7 @@ def recaption(
     description: str,
     materials_replacement_rules: str,
     api_key: str,
+    seed: int,
     model: str = "llama-3.3-70b-versatile",
 ) -> str:
     prompt = """You are an AI assistant tasked with transforming natural language descriptions of people, typically based on portrait photographs, by replacing certain elements with corresponding materials according to a predefined set of rules. Your goal is to reinterpret the description so the subject appears constructed from building materials, while preserving the original feel and texture of each element.
@@ -89,6 +91,7 @@ Assistant: \"The man had hair made out of dark brown brush, glasses made out of 
         max_completion_tokens=1024,
         top_p=1,
         stream=False,
+        seed=seed,
     )
     return (
         completion.choices[0].message.content
@@ -96,10 +99,23 @@ Assistant: \"The man had hair made out of dark brown brush, glasses made out of 
     )
 
 
-def write_caption(b64_image: str, api_key: str) -> str:
-    description = describe(b64_image, api_key)
+def write_caption(b64_image: str, api_key: str, seed: int = None) -> str:
+    """
+    Write a caption about an image with someone represented in the image, using construction materials, such as metalic wires for hair, insulating mineral wool for clothes, etc.
+
+    Args:
+        b64_image (str): a base 64 encoded image.
+        api_key (str): the Groq API key.
+        seed (str, optional): rng seed passed to the Groq API, leave to None to use a random seed. Defaults to None.
+
+    Returns:
+        str: Description of the character in the image, recaptioned using construction materials.
+    """
+    if seed is None:
+        seed = randint(1 - 2**63, 2**63 - 1)
+    description = describe(b64_image, api_key, seed)
     material_replacement_rules = load_materials()
-    result = recaption(description, material_replacement_rules, api_key)
+    result = recaption(description, material_replacement_rules, api_key, seed)
     return result
 
 
